@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+
+  errors:
+    messages:
+      file_is_too_large: 'must be less than %{size}%{unit}'
