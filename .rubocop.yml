@@ -1,5 +1,6 @@
-require: rubocop-performance
-require: rubocop-rails
+require:
+  - rubocop-performance
+  - rubocop-rails
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -9,6 +10,14 @@ Metrics/LineLength:
 
 Documentation:
   Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*'
 
 Metrics/BlockLength:
   Exclude:
