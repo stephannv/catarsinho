@@ -1,0 +1,84 @@
+= form_with(model: project, local: true, html: { id: 'project-form' }) do |form|
+  - if project.errors.any?
+    .notification.is-danger Some errors prohibited this project from being saved
+
+  .field
+    = form.label :title, class: 'label'
+    .control.is-expanded
+      = form.text_field :title, class: input_class_for(project, :title)
+    = errors_for(project, :title)
+
+  .field
+    = form.label :goal, class: 'label'
+    .control.is-expanded
+      = form.text_field :goal, class: input_class_for(project, :goal)
+    = errors_for(project, :goal)
+
+  .field
+    = form.label :image, class: 'label'
+    .control
+      .file.has-name.is-fullwidth
+        label.file-label
+          = form.file_field :image,
+            class: 'file-input',
+            accept: 'image/png,image/jpg,image/jpeg'
+
+          span.file-cta
+            span.file-icon
+              i.fas.fa-upload
+
+            span.file-label
+              | Choose a file…
+
+          span#file-name.file-name
+    = errors_for(project, :image)
+
+  .field
+    = form.label :description, class: 'label'
+    .control
+      = form.rich_text_area :description
+    = errors_for(project, :description)
+
+  .field.is-grouped.is-grouped-right
+    .control
+      = link_to 'Back', projects_path, class: 'button is-light'
+    .control
+      = form.submit class: 'button is-primary'
+
+javascript:
+  let addFileInputListener = function () {
+    let fileInput = document.getElementById('project_image')
+    let fileName = document.getElementById('file-name')
+
+    fileInput.onchange = function () {
+      if (fileInput.files.length > 0) {
+        fileName.innerHTML = fileInput.files[0].name
+      }
+    }
+  }
+
+  let initGoalInput = function () {
+    let goalInput = document.getElementById('project_goal')
+
+    goalInput.value = goalInput.value.toString().replace('.', ',')
+
+    let maskOptions = {
+      alias: 'currency',
+      prefix: 'R$ ',
+      radixPoint: ',',
+      allowMinus: false,
+      rightAlign: false
+    }
+    new Inputmask(maskOptions).mask(goalInput)
+
+    document.getElementById('project-form').addEventListener('submit', function (event) {
+      let unmaskedValue = goalInput.inputmask.unmaskedvalue()
+      goalInput.inputmask.remove()
+      goalInput.value = parseFloat(unmaskedValue.replace(',', '.'))
+    })
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    addFileInputListener()
+    initGoalInput()
+  })

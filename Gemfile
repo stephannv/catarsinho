@@ -10,7 +10,7 @@ gem 'pg', '1.1.4'
 gem 'puma', '3.12.1'
 gem 'rails', '6.0.0.rc1'
 gem 'sass-rails', '5.0.7'
-gem 'turbolinks', '5.2.0'
+gem 'slim-rails', '3.2.0'
 gem 'tzinfo-data', '1.2.5', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'webpacker', '4.0.7'
 

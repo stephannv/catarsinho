@@ -2,11 +2,14 @@
   "name": "catarsinho",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/actiontext": "^6.0.0-rc1",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.0.7",
+    "bulma": "^0.7.5",
+    "inputmask": "^4.0.8",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0"
   },

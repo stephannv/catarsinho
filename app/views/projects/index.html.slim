@@ -1,0 +1,12 @@
+h3.title.is-3 My Projects
+
+- if @projects.empty?
+  .notification.is-white
+    | There's no project created yet. Create a project
+    =< link_to 'here', new_project_path
+    | .
+
+.columns.is-multiline
+  - @projects.each do |project|
+    .column.is-4
+      = render 'project_card', project: project

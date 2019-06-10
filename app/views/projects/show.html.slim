@@ -1,0 +1,49 @@
+.columns.is-centered
+  .column.is-7
+    nav.breadcrumb.has-succeeds-separator aria-label="breadcrumbs"
+      ul
+        li
+          = link_to('Projects', projects_path)
+        li.is-active
+          a(aria-current="page") Project Detail
+
+.columns.is-centered
+  .column.is-4
+    .box
+      h5.title.is-5 = @project.title
+      p
+        figure.image.is-16by9
+          = image_tag(@project.image)
+
+      p
+        == @project.description
+
+  .column.is-3
+    .box
+      h5.title.is-5 Details
+
+      p.has-text-weight-bold	Goal
+      span = to_brl(@project.goal)
+
+      p.has-text-weight-bold	Author
+      span You
+
+    .box
+      h5.title.is-5 Actions
+
+      .field
+        = link_to edit_project_path(@project), class: 'button is-primary is-fullwidth' do
+          span.icon
+            i.fas.fa-edit
+          span Edit Project
+      .field
+        = link_to @project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-danger is-fullwidth' do
+          span.icon
+            i.fas.fa-trash
+          span Destroy Project
+
+      .field
+        = link_to projects_path, class: 'button is-light is-fullwidth'
+          span.icon
+            i.fas.fa-arrow-left
+          span Back to Projects

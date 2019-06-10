@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_06_08_125938) do
 
   create_table "projects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title", null: false
-    t.decimal "goal", precision: 16, scale: 2, null: false
+    t.decimal "goal", precision: 16, scale: 2, default: "0.0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["title"], name: "index_projects_on_title"

@@ -1,0 +1,29 @@
+doctype html
+
+html
+  head
+    title Catarsinho
+    = csrf_meta_tags
+    = csp_meta_tag
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+
+  body.has-navbar-fixed-top
+    nav.navbar.is-fixed-top.is-link role="navigation" aria-label="main navigation"
+      .navbar-brand
+        = link_to root_path, class: 'navbar-item'
+          h5.title.is-5.has-text-white CATARSINHO
+
+      .navbar-menu
+        .navbar-end
+          .navbar-item
+            .buttons
+              = link_to 'New Project', new_project_path, class: 'button is-primary'
+
+    .section
+      .container.is-fluid
+        - if notice
+          .notification.is-success = notice
+        = yield
