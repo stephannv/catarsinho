@@ -1,0 +1,19 @@
+.card
+  = link_to project_path(project), class: 'card-image' do
+    figure.image.is-16by9
+      = image_tag(project.image, alt: "Project #{project.title} Image")
+
+  .card-content
+    = link_to project_path(project), class: 'media' do
+      .media-content
+        p.title.is-4 = project.title
+        p.subtitle.is-6 By you
+
+    .content
+      b = to_brl(project.goal)
+      b  goal
+
+css:
+  .card .content {
+    text-align: right;
+  }

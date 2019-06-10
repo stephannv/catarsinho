@@ -19,8 +19,7 @@ RUN bundle install
 
 COPY package.json /catarsinho/package.json
 
-COPY yarn.lock /catarsinho/yarn.lock
+COPY . /catarsinho
 
 RUN yarn install --check-files
 
-COPY . /catarsinho

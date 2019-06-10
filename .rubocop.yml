@@ -44,3 +44,4 @@ AllCops:
     - 'bin/**/*'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
+    - 'db/seeds.rb'
