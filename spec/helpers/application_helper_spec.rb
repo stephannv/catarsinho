@@ -63,4 +63,10 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe '#to_brl' do
+    it 'formats number to brazilian real format' do
+      expect(helper.to_brl(12_345.67)).to eq 'R$ 12.345,67'
+    end
+  end
 end
