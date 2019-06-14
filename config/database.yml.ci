@@ -1,4 +1,4 @@
 test:
   adapter: postgresql
   database: catarsinho_ci_test
-  port: 5433
+  port: 5432
