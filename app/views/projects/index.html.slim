@@ -1,10 +1,13 @@
 h3.title.is-3 My Projects
 
-- if @projects.empty?
-  .notification.is-white
+.notification.is-white
+  - if @projects.empty?
     | There's no project created yet. Create a project
-    =< link_to 'here', new_project_path
-    | .
+  - else
+    | Create a new project
+  =< link_to 'here', new_project_path
+  | .
+
 
 .columns.is-multiline
   - @projects.each do |project|
