@@ -17,12 +17,4 @@ COPY Gemfile.lock /catarsinho/Gemfile.lock
 
 RUN bundle install
 
-COPY package.json /catarsinho/package.json
-
-COPY yarn.lock /catarsinho/yarn.lock
-
-RUN yarn install --check-files
-
 COPY . /catarsinho
-
-
