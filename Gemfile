@@ -7,7 +7,7 @@ gem 'active_storage_validations', '0.7.1'
 gem 'awesome_print', '1.8.0'
 gem 'bootsnap', '1.4.4', require: false
 gem 'pg', '1.1.4'
-gem 'puma', '3.12.1'
+gem 'puma', '3.12.4'
 gem 'rails', '6.0.0.rc1'
 gem 'sass-rails', '5.0.7'
 gem 'slim-rails', '3.2.0'
